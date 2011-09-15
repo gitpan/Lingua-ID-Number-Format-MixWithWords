@@ -1,0 +1,25 @@
+---
+abstract: "Format number to a mixture of numbers and words (e.g. \"12,3 juta\")"
+author:
+  - 'Steven Haryanto <stevenharyanto@gmail.com>'
+build_requires:
+  Module::Build: 0.3601
+configure_requires:
+  Module::Build: 0.3601
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.200007, CPAN::Meta::Converter version 2.110930'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Lingua-ID-Number-Format-MixWithWords
+requires:
+  Exporter::Lite: 0
+  Lingua::EN::Number::Format::MixWithWords: 0
+  Sub::Spec: 1.0.2
+  Test::More: 0.96
+  perl: 5.010000
+resources:
+  homepage: http://search.cpan.org/dist/Lingua-ID-Number-Format-MixWithWords/
+  repository: http://github.com/sharyanto/Lingua-ID-Number-Format-MixWithWords
+version: 0.01

@@ -14,7 +14,9 @@ meta-spec:
   version: 1.4
 name: Lingua-ID-Number-Format-MixWithWords
 requires:
+  Data::Clone: 0
   Exporter::Lite: 0
+  Lingua::Base::Number::Format::MixWithWords: 0
   Lingua::EN::Number::Format::MixWithWords: 0
   Sub::Spec: 1.0.2
   Test::More: 0.96
@@ -22,4 +24,4 @@ requires:
 resources:
   homepage: http://search.cpan.org/dist/Lingua-ID-Number-Format-MixWithWords/
   repository: http://github.com/sharyanto/Lingua-ID-Number-Format-MixWithWords
-version: 0.01
+version: 0.02

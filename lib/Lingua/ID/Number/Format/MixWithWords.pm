@@ -4,9 +4,11 @@ use 5.010;
 use strict;
 use warnings;
 
-use Lingua::EN::Number::Format::MixWithWords;
-use parent qw(Lingua::EN::Number::Format::MixWithWords);
+use Lingua::Base::Number::Format::MixWithWords;
+use parent qw(Lingua::Base::Number::Format::MixWithWords);
+require Lingua::EN::Number::Format::MixWithWords;
 
+use Data::Clone;
 use Exporter::Lite;
 use Math::Round qw(nearest);
 use Number::Format;
@@ -14,14 +16,17 @@ use POSIX qw(floor log10);
 
 our @EXPORT_OK = qw(format_number_mix);
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
-our %SPEC = %Lingua::EN::Number::Format::MixWithWords::SPEC;
+our %SPEC;
+$SPEC{format_number_mix} = clone(
+    $Lingua::EN::Number::Format::MixWithWords::SPEC{format_number_mix});
+delete $SPEC{format_number_mix}{args}{scale};
 
 sub format_number_mix {
     my %args = @_;
 
-    my $f = Lingua::ID::Number::Format::MixWithWords->new(
+    my $f = __PACKAGE__->new(
         num_decimal   => $args{num_decimal},
         min_format    => $args{min_format},
         min_fraction  => $args{min_fraction},
@@ -29,38 +34,41 @@ sub format_number_mix {
     $f->_format($args{num});
 }
 
+my $id_names = {
+    #2   => 'ratus',
+    3   => 'ribu',
+    6   => 'juta',
+    9   => 'miliar',
+    12   => 'triliun',
+    15   => 'kuadriliun',
+    18   => 'kuintiliun',
+    21   => 'sekstiliun',
+    24   => 'septiliun',
+    27   => 'oktiliun',
+    30   => 'noniliun',
+    33   => 'desiliun',
+    36   => 'undesiliun',
+    39   => 'duodesiliun',
+    42   => 'tredesiliun',
+    45   => 'kuatuordesiliun',
+    48   => 'kuindesiliun',
+    51   => 'seksdesiliun',
+    54   => 'septendesiliun',
+    57   => 'oktodesiliun',
+    60   => 'novemdesiliun',
+    63   => 'vigintiliun',
+    100  => 'googol',
+    303  => 'sentiliun',
+};
+
 sub new {
     my ($class, %args) = @_;
     $args{decimal_point} //= ",";
     $args{thousands_sep} //= ".";
-    $args{names} //= {
-        #2   => 'ratus',
-        3   => 'ribu',
-        6   => 'juta',
-        9   => 'miliar',
-       12   => 'triliun',
-       15   => 'kuadriliun',
-       18   => 'kuintiliun',
-       21   => 'sekstiliun',
-       24   => 'septiliun',
-       27   => 'oktiliun',
-       30   => 'noniliun',
-       33   => 'desiliun',
-       36   => 'undesiliun',
-       39   => 'duodesiliun',
-       42   => 'tredesiliun',
-       45   => 'kuatuordesiliun',
-       48   => 'kuindesiliun',
-       51   => 'seksdesiliun',
-       54   => 'septendesiliun',
-       57   => 'oktodesiliun',
-       60   => 'novemdesiliun',
-       63   => 'vigintiliun',
-       100  => 'googol',
-       303  => 'sentiliun',
-    };
+    $args{names}         //= $id_names;
+
     # XXX should use "SUPER"
-    my $self = Lingua::EN::Number::Format::MixWithWords->new(%args);
+    my $self = Lingua::Base::Number::Format::MixWithWords->new(%args);
     bless $self, $class;
 }
 
@@ -76,7 +84,7 @@ Lingua::ID::Number::Format::MixWithWords - Format number to a mixture of numbers
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -102,26 +110,13 @@ Arguments (C<*> denotes required arguments):
 
 =over 4
 
-=item * B<min_format>* => I<float> (default C<1000000>)
+=item * B<min_format> => I<float>
 
-Number must be larger than this to be formatted as mixture of number and word.
+=item * B<min_fraction> => I<float>
 
-=item * B<min_fraction>* => I<float> (default C<1>)
-
-Whether smaller number can be formatted with 0,x.
-
-If min_fraction is 1 (the default) or 0.9, 800000 won't be formatted as 0.9
-omillion but will be if min_fraction is 0.8.
-
-=item * B<num>* => I<float>
-
-The input number to format.
+=item * B<num> => I<float>
 
 =item * B<num_decimal> => I<int>
-
-Number of decimal points to round.
-
-Can be negative, e.g. -1 to round to nearest 10, -2 to nearest 100, and so on.
 
 =back
 

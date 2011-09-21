@@ -17,7 +17,7 @@ my %module_build_args = (
     'Steven Haryanto <stevenharyanto@gmail.com>'
   ],
   'dist_name' => 'Lingua-ID-Number-Format-MixWithWords',
-  'dist_version' => '0.02',
+  'dist_version' => '0.03',
   'license' => 'perl',
   'module_name' => 'Lingua::ID::Number::Format::MixWithWords',
   'recommends' => {},
@@ -27,6 +27,7 @@ my %module_build_args = (
     'Exporter::Lite' => '0',
     'Lingua::Base::Number::Format::MixWithWords' => '0',
     'Lingua::EN::Number::Format::MixWithWords' => '0',
+    'Package::Rename' => '0',
     'Sub::Spec' => '1.0.2',
     'Test::More' => '0.96',
     'perl' => '5.010000'

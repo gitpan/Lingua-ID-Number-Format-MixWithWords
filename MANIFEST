@@ -7,8 +7,10 @@ META.yml
 README
 dist.ini
 lib/Lingua/ID/Number/Format/MixWithWords.pm
+lib/MixWithWords/ID.pm
 t/00-compile.t
 t/01-basics.t
+t/alias.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t
 weaver.ini

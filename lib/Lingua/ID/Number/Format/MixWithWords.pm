@@ -16,7 +16,7 @@ use POSIX qw(floor log10);
 
 our @EXPORT_OK = qw(format_number_mix);
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 our %SPEC;
 $SPEC{format_number_mix} = clone(
@@ -84,7 +84,7 @@ Lingua::ID::Number::Format::MixWithWords - Format number to a mixture of numbers
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 

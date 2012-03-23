@@ -6,33 +6,32 @@ use Module::Build 0.3601;
 
 
 my %module_build_args = (
-  'build_requires' => {
-    'Module::Build' => '0.3601'
+  "build_requires" => {
+    "Module::Build" => "0.3601"
   },
-  'configure_requires' => {
-    'Module::Build' => '0.3601'
+  "configure_requires" => {
+    "Module::Build" => "0.3601"
   },
-  'dist_abstract' => 'Format number to a mixture of numbers and words (e.g. "12,3 juta")',
-  'dist_author' => [
-    'Steven Haryanto <stevenharyanto@gmail.com>'
+  "dist_abstract" => "Format number to a mixture of numbers and words (e.g. \"12,3 juta\")",
+  "dist_author" => [
+    "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
-  'dist_name' => 'Lingua-ID-Number-Format-MixWithWords',
-  'dist_version' => '0.03',
-  'license' => 'perl',
-  'module_name' => 'Lingua::ID::Number::Format::MixWithWords',
-  'recommends' => {},
-  'recursive_test_files' => 1,
-  'requires' => {
-    'Data::Clone' => '0',
-    'Exporter::Lite' => '0',
-    'Lingua::Base::Number::Format::MixWithWords' => '0',
-    'Lingua::EN::Number::Format::MixWithWords' => '0',
-    'Package::Rename' => '0',
-    'Sub::Spec' => '1.0.2',
-    'Test::More' => '0.96',
-    'perl' => '5.010000'
+  "dist_name" => "Lingua-ID-Number-Format-MixWithWords",
+  "dist_version" => "0.04",
+  "license" => "perl",
+  "module_name" => "Lingua::ID::Number::Format::MixWithWords",
+  "recommends" => {},
+  "recursive_test_files" => 1,
+  "requires" => {
+    "Data::Clone" => 0,
+    "Exporter::Lite" => 0,
+    "Lingua::Base::Number::Format::MixWithWords" => 0,
+    "Lingua::EN::Number::Format::MixWithWords" => 0,
+    "Package::Rename" => 0,
+    "Test::More" => "0.96",
+    "perl" => "5.010000"
   },
-  'script_files' => []
+  "script_files" => []
 );
 
 

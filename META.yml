@@ -7,7 +7,7 @@ build_requires:
 configure_requires:
   Module::Build: 0.3601
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200007, CPAN::Meta::Converter version 2.110930'
+generated_by: 'Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.113640'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -19,10 +19,9 @@ requires:
   Lingua::Base::Number::Format::MixWithWords: 0
   Lingua::EN::Number::Format::MixWithWords: 0
   Package::Rename: 0
-  Sub::Spec: 1.0.2
   Test::More: 0.96
   perl: 5.010000
 resources:
   homepage: http://search.cpan.org/dist/Lingua-ID-Number-Format-MixWithWords/
   repository: http://github.com/sharyanto/Lingua-ID-Number-Format-MixWithWords
-version: 0.03
+version: 0.04
